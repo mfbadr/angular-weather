@@ -18,7 +18,7 @@
     }
 
     function getForecast(zip){
-      var url = getUrl('forecast', zip);
+      var url = getUrl('forecast10day', zip);
       return $http.jsonp(url);
     }
     return {getConditions:getConditions, getWebcams:getWebcams, getForecast:getForecast};
