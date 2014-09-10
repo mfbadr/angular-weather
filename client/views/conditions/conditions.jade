@@ -1,0 +1,14 @@
+h2 {{title}}
+  .row
+    .col-xs-3
+      .form-group
+        form(role='form', novalidate, name='zipForm')
+          label(for='zip') ZIP
+          input#zip.form-control(type='text', ng-pattern='/^[0-9]{5}$/', required, autofocus, name='zip', ng-model='zip', style="background-color: {{zipForm.$valid ? 'DarkSeaGreen' : 'IndianRed'}}")
+        button.btn.btn-success(ng-show='zipForm.$valid', type='submit', ng-click='getConditions(zip)') Submit
+    .col-xs-6
+      h2(ng-show='temperature') It is currently {{temperature}} &deg;F in {{zip}}
+      h2(ng-show='weather') {{weather}}
+    .col-xs-3
+      img#icon(ng-show='icon', src='{{icon}}')
+
