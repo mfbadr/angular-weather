@@ -3,14 +3,12 @@
   'use strict';
 
   angular.module('weather')
-  .controller('WebcamsController', ['$scope', '$http', function($scope, $http){
+  .controller('WebcamsController', ['$scope', 'wu', function($scope, wu){
     $scope.title = 'Webcams';
     $scope.zip = '37212';
 
     $scope.getWebcams = function(zip){
-      var url = 'http://api.wunderground.com/api/2738df9035fbffa9/webcams/q/' + $scope.zip + '.json?callback=JSON_CALLBACK';
-      $http.jsonp(url).then(function(response){
-        //response.data.webcams: [CURRENTIMAGEURL]
+      wu.getWebcams.then(function(response){
         $scope.webcams = response.data.webcams;
       });
     };
