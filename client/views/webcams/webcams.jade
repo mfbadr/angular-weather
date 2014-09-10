@@ -1,0 +1,15 @@
+h2 {{title}}
+  .row
+    .col-xs-3
+      .form-group
+        form(role='form', novalidate, name='zipForm')
+          label(for='zip') ZIP
+          input#zip.form-control(type='text', ng-pattern='/^[0-9]{5}$/', required, autofocus, name='zip', ng-model='zip', style="background-color: {{zipForm.$valid ? 'DarkSeaGreen' : 'IndianRed'}}")
+        button.btn.btn-success(ng-show='zipForm.$valid', type='submit', ng-click='getWebcams(zip)') Submit
+    .col-xs-6
+    .col-xs-3
+  .row(ng-show='webcams')
+    h2 Webcams
+    a(ng-repeat='webcam in webcams', href='{{webcam.bigPic}}')
+      img(src='{{webcam.smallPic}}')
+
