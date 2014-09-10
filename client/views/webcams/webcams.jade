@@ -10,6 +10,8 @@ h2 {{title}}
     .col-xs-3
   .row(ng-show='webcams')
     h2 Webcams
-    a(ng-repeat='webcam in webcams', href='{{webcam.bigPic}}')
-      img(src='{{webcam.smallPic}}')
+    .panel.panel-default
+      .panel-body
+        a.webcams(ng-repeat='webcam in webcams', href='{{webcam.CURRENTIMAGEURL}}') 
+          img(ng-src='{{webcam.WIDGETCURRENTIMAGEURL}}')
 

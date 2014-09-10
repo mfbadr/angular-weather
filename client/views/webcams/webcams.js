@@ -11,11 +11,7 @@
       var url = 'http://api.wunderground.com/api/2738df9035fbffa9/webcams/q/' + $scope.zip + '.json?callback=JSON_CALLBACK';
       $http.jsonp(url).then(function(response){
         //response.data.webcams: [CURRENTIMAGEURL]
-        var webcams = response.data.webcams.map(function(webcam){
-          var obj = {smallPic:webcam.WIDGETCURRENTIMAGEURL, bigPic:webcam.CURRENTIMAGEURL};
-          return obj;
-        });
-        $scope.webcams = webcams;
+        $scope.webcams = response.data.webcams;
       });
     };
   }]);
